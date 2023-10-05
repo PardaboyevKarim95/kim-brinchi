@@ -1,0 +1,98 @@
+/* encode-sans-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Encode Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/encode-sans-v19-latin-regular.woff2') format('woff2');
+}
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family:'Encode Sans';
+  
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.wrapper {
+  padding: 100px 0;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+
+
+.title {
+ text-align: center;
+ margin-bottom: 50px;
+ letter-spacing: 5px;
+}
+
+.form-label {
+  display: block;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-input {
+  margin-left: 50px;
+  width: 300px;
+  padding: 8px;
+  margin-right: 50px;
+}
+.list-btn {
+  width: 100px;
+  padding: 8px;
+}
+.list-btn:hover {
+  color: aliceblue;
+  background-color: #000;
+}
+.list {
+  width: 100%;
+  display: flex;
+  align-items: start;
+  list-style: none;
+  margin: 0 auto;
+  margin-top: 100px;
+  gap: 50px;
+}
+
+.item {
+  display: block;
+  width: 250px;
+  height: 250px;
+border: 2px solid #333;
+border-radius: 5px;
+padding: 30px 0;
+background-color: #E5E5E5;
+}
+
+.list-images {
+  display: block;
+  margin: 0 auto;
+}
+
+.list-text {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.list-soat3,.list-soat2,.list-soat1,.list-soat4 {
+  font-size: 26px;
+  color: red;
+  text-align: center;
+}
+.list-span1,.list-span2,.list-span3,.list-span4 {
+  display: block;
+  color: red;
+    text-align: center;
+  font-size: 18px;
+}
