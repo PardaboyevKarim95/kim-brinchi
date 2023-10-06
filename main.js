@@ -1,61 +1,60 @@
-let elinput = document.querySelector(".form-input");
 let elform = document.querySelector("form");
-let elspan1 = document.querySelector(".list-span1");
-let elspan2 = document.querySelector(".list-span2");
-let elspan3 = document.querySelector(".list-span3");
-let elspan4 = document.querySelector(".list-span4");
+let elinp = document.querySelector(".form-input");
+let elpiyada = document.querySelector(".list-span1");
+let elvelasiped = document.querySelector(".list-span2");
+let elmoshina = document.querySelector(".list-span3");
+let elsamalyot = document.querySelector(".list-span4");
 
-let piyoda = 3.6;
-let velasiped = 21.1;
-let moshina = 70;
-let samalyot = 800;
+function nam(yol, klametr) {
+  let soat = Math.floor(yol / klametr);
+  let min = Math.floor(((yol / klametr) % 1) * 60);
+  let secunt = Math.floor(((((yol / klametr) % 1) * 60) % 1) * 60);
+  let d = bbb(soat, min, secunt);
+  // return console.log(!soat > 0);
+  return d;
+}
 
-elform.addEventListener("submit", function (tr) {
-  tr.preventDefault();
+function bbb(a, b, s) {
+  console.log(typeof a);
+  if (!a > 0) {
+    console.log(a, "true");
 
-  function piy(piyo) {
-    let span1 = elspan1;
-    let span2 = elspan2;
-    let span3 = elspan3;
-    let span4 = elspan4;
-
-    let s = "0";
-
-    let soat1 = Math.floor(+elinput.value / piyo);
-    let minut = Math.floor(((+elinput.value / piyo) % 1) * 60);
-    let secunt = Math.floor(((((+elinput.value / piyo) % 1) * 60) % 1) * 60);
-    if (minut < 10) {
-      minut = s + minut;
-    }
-    if (soat1 < 10) {
-      soat1 = s + soat1;
-    }
-
-    if (secunt < 10) {
-      secunt = s + secunt;
-    }
-
-    let opshi = soat1 + " : " + minut + " : " + secunt;
-
-    if (piyo === piyoda) {
-      span1.textContent = opshi;
-    }
-    if (piyo === velasiped) {
-      span2.textContent = opshi;
-    }
-
-    if (piyo === moshina) {
-      span3.textContent = opshi;
-    }
-
-    if (piyo === samalyot) {
-      span4.textContent = opshi;
-    }
-    console.log(opshi);
+    a = "";
+  } else {
+    a = " soat: " + a;
   }
+  if (!b > 0) {
+    console.log(b, "true");
 
-  piy(piyoda);
-  piy(velasiped);
-  piy(moshina);
-  piy(samalyot);
+    b = "";
+  } else {
+    b = " minut: " + b;
+  }
+  if (!s > 0) {
+    console.log(s, "true");
+
+    s = "";
+  } else {
+    s = " secunt: " + s;
+  }
+  return a + b + s;
+}
+
+elform.addEventListener("submit", function (evt) {
+  evt.preventDefault();
+  if (isNaN(elinp.value)) {
+    alert("Hato: raqam kiriting");
+  } else if (elinp.value == 0) {
+    alert("Hato: Noldan katta son kirting");
+  }
+  let piyoda = 3.6;
+  let velasiped = 20.1;
+  let moshina = 70;
+  let samolyot = 800;
+  let g = nam(+elinp.value, piyoda);
+  elpiyada.textContent = g;
+  elvelasiped.textContent = nam(+elinp.value.trim(), velasiped);
+  elmoshina.textContent = nam(+elinp.value.trim(), moshina);
+  elsamalyot.textContent = nam(+elinp.value.trim(), samolyot);
+  elinp.value = "";
 });
